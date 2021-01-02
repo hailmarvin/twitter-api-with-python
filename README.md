@@ -3,8 +3,9 @@ Interacting with twitter API using python
 
 ### Capabilities
 ```
-Compare followers and following for instance to determine
- whether the person you follow, follows you back
+Generates List of Followers
+Generates List of Following
+Compares between the two
 ```
 
 ### Libraries used

@@ -1,4 +1,3 @@
-import json
 import tweepy
 
 ## API Credentials
@@ -11,15 +10,28 @@ auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_token, access_token_secret)
 
 api = tweepy.API(auth)
+myFollowers = []
+myFollowing = []
 
-user_id = "" ## profile"s ID
+print('List of Followers')
+for follower in api.followers():
+    myFollowers.append(follower.screen_name)
+    print(follower.screen_name)
+print('\n')
 
-followers = api.followers(user_id)
-friends = api.friends(user_id)
+print('List of Following')
+for friend in api.friends():
+    myFollowing.append(friend.screen_name)
+    print(friend.screen_name)
+print('\n')
 
-def not_mutual(friends, followers):
-    return [x.screen_name for x in friends if x.screen_name not in followers]
+print('Accounts that do not follow back')
+for x in myFollowing:
+    if x not in myFollowers:
+        print(x)
+print('\n')
 
-print(not_mutual(friends, followers))
-
-## Not yet tested
+print('Accounts you do not follow back')
+for x in myFollowers:
+    if x not in myFollowing:
+        print(x)
