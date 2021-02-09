@@ -17,7 +17,7 @@ myFollowers = []
 myFollowing = []
 
 def get_user():
-    username = input('Enter flags (type h for help) ')
+    username = input('Enter flags (type h for help): ')
     if username == 'h':
         help = """format: [username] -[flags]
     Flags
